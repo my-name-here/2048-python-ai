@@ -7,7 +7,6 @@ Created on Sun Jan 16 14:58:59 2022
 """
 
 
-import time
 import serial
 from time import sleep
 class Arduino:
