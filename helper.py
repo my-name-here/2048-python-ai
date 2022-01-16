@@ -201,3 +201,5 @@ def move(user_input,myArray):
         moved = True
     dic = {'moved':moved,"score":score}
     return dic
+def move_num_to_str(move_num):
+    return d[move_num]
