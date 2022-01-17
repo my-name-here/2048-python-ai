@@ -88,7 +88,8 @@ class GameGrid(Frame):
     def key_down(self, event):
         key = event.keysym
         print(event)
-        arduino_move_send.send_move_to_arduino(helper.move_num_to_str(ai.getbestmove(self.matrix, number_of_runs)['move']))
+        print(ai.getbestmove(self.matrix, number_of_runs)['move'])
+        arduino_move_send.send_move_to_arduino(ai.getbestmove(self.matrix, number_of_runs)['move'])
         if key == c.KEY_QUIT: exit()
         if key == c.KEY_BACK and len(self.history_matrixs) > 1:
             self.matrix = self.history_matrixs.pop()
