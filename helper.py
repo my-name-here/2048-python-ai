@@ -1,7 +1,7 @@
 
 import random
 from copy import deepcopy
-
+from math import log2
 
 def availableCell(myArray):
     listfori = []
@@ -203,3 +203,16 @@ def move(user_input,myArray):
     return dic
 def move_num_to_str(move_num):
     return d[move_num]
+# use https://puzzling.stackexchange.com/questions/63113/can-the-score-be-deduced-from-the-position-in-2048
+# to predict score of game, sing  the probabiliteis fo 2s and 4s
+# will not be exact, but for large games, would work pretty well.
+def predict_score(currentBoard):
+    score = 0
+    for row in currentBoard:
+        for tile in row:
+            tile_exponent = int(log2(tile))
+            score += (2**tile_exponent)*(tile_exponent-(11/13))
+    return score
+
+            
+    
